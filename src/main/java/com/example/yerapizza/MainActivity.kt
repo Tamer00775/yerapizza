@@ -14,11 +14,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val pizzaApi = RetrofitClient.retrofit().create(PizzaApi::class.java)
-
+        Log.d("start", "application started")
         GlobalScope.launch {
-            val result = pizzaApi.findAll();
+            val result = pizzaApi.findAll().execute();
             if (result != null) {
-                Log.d("result : ", result.toString())
+                result.body()?.get(0)?.let { Log.d("result : ", it.name) }
             }
         }
     }

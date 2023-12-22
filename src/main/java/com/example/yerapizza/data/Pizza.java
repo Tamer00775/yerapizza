@@ -7,8 +7,7 @@ public class Pizza {
     private String name;
     private String description;
     private Integer price;
-    private LocalDateTime createdDate;
-
+    private String createdDate;
 
     public Long getId() {
         return id;
@@ -42,11 +41,11 @@ public class Pizza {
         this.price = price;
     }
 
-    public LocalDateTime getCreatedDate() {
+    public String getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(LocalDateTime createdDate) {
+    public void setCreatedDate(String createdDate) {
         this.createdDate = createdDate;
     }
 }
