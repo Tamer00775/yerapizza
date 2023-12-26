@@ -1,13 +1,24 @@
 package com.example.yerapizza.data;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class Pizza {
+public class Pizza implements Serializable {
     private Long id;
     private String name;
     private String description;
     private Integer price;
     private String createdDate;
+
+    private String imagePath;
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
 
     public Long getId() {
         return id;
