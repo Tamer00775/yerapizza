@@ -83,11 +83,12 @@ public class DetailActivity1 extends AppCompatActivity {
 
     private void setVariable() {
         backBtn.setOnClickListener(v -> finish());
-
-        String imagePath = object.getImagePath();
+        int drawableResourceId=getResources()
+                .getIdentifier(object.getImagePath(),
+                        "drawable", DetailActivity1.this.getPackageName());
 
         Glide.with(DetailActivity1.this)
-                .load(imagePath)
+                .load(drawableResourceId)
                 .into(itemImg);
 
         priceKgTxt.setText(object.getPrice()+"$/Kg");

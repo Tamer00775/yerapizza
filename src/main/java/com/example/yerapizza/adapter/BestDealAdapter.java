@@ -38,21 +38,21 @@ public class BestDealAdapter extends RecyclerView.Adapter<BestDealAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull BestDealAdapter.ViewHolder holder, int position) {
-        holder.titleText.setText(pizzaArrayList.get(position).getDescription());
+        holder.titleText.setText(pizzaArrayList.get(position).getName());
         holder.priceText.setText(pizzaArrayList.get(position).getPrice() + "$/kg");
 
-        String imagePath = pizzaArrayList.get(position).getImagePath();
+        int drawableResourceId = holder.itemView.getResources()
+                .getIdentifier(pizzaArrayList.get(position).getImagePath(),
+                        "drawable", holder.itemView.getContext().getPackageName());
 
         Glide.with(context)
-                .load(imagePath)
+                .load(drawableResourceId)
                 .into(holder.pic);
-
         holder.itemView.setOnClickListener(v -> {
-            Intent intent = new Intent(context, DetailActivity1.class);
+            Intent intent=new Intent(context, DetailActivity1.class);
             intent.putExtra("object", pizzaArrayList.get(position));
             context.startActivity(intent);
         });
-
     }
 
     @Override

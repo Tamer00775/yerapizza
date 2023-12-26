@@ -9,7 +9,6 @@ public class Pizza implements Serializable {
     private String description;
     private Integer price;
     private String createdDate;
-
     private String imagePath;
 
     public String getImagePath() {
